@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//第1章第4题
 namespace program1
 {
     class Program
