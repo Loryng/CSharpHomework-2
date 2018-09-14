@@ -19,10 +19,34 @@ namespace program2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double num1 = Int32.Parse(textBox1.Text);
-            double num2 = Int32.Parse(textBox2.Text);
-            double pro = num1 * num2;
-            textBox3.Text = Convert.ToString(pro);
+            //改进1
+            bool T = true;
+            while (T)
+            {
+                
+                try
+                {
+                    double num1 = Int32.Parse(textBox1.Text);
+                    double num2 = Int32.Parse(textBox2.Text);
+                    double pro = num1 * num2;
+                    textBox3.Text = Convert.ToString(pro);
+                    T = false;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("请正确输入数字！");
+                    textBox1.Text = "0";
+                    textBox2.Text = "0";
+                    T = true;
+                }
+                
+            }
+
+            //double num1 = Int32.Parse(textBox1.Text);
+            //double num2 = Int32.Parse(textBox2.Text);
+            //double pro = num1 * num2;
+            //textBox3.Text = Convert.ToString(pro);
+
         }
     }
 }
