@@ -23,32 +23,10 @@ namespace program1
             }
             return true;
         }
-        static int Countprime = 0;//统计素数因子的个数
-        static void Main(string[] args)
-        {       
-            bool inIfRight = true;
-            int numIn=0;
-            //判断输入是否正确
-            while (inIfRight)
-            {
-                Console.Write("输入一个自然数：");
-                try
-                {
-                    string numStr = Console.ReadLine();
-                    numIn = Int32.Parse(numStr);
-                    if (numIn <= 0)
-                    {
-                        Console.WriteLine("\n请正确输入数字！\n");
-                        continue;
-                    }
-                    inIfRight = false;
-                }
-                catch (Exception e)
-                {
-                    inIfRight = true;
-                }
-            }
-            Console.Write("其素数因子为：\t");
+        //计算因子
+        static int Divisor(int numIn)
+        {
+            Console.Write("The prime factors：\t");
             for (int i = 1; i <= Math.Sqrt(numIn); i++)
             {
                 if (numIn % i == 0)
@@ -62,18 +40,47 @@ namespace program1
 
                     if (PrimeNum(j))
                     {
-                        if(i!=j)
-                        Console.Write(j + "\t");
+                        if (i != j)
+                            Console.Write(j + "\t");
                         Countprime++;
                     }
-                       
+
                 }
             }
-      
+
             if (Countprime == 0)
             {
-                Console.Write("\n无素数因子\n");
+                Console.WriteLine("There are no prime factors");
             }
+            Console.WriteLine("The number of prime factors:" + Countprime);
+            return 0;
+        }
+        static int Countprime = 0;//统计素数因子的个数
+        static void Main(string[] args)
+        {       
+            bool inIfRight = true;
+            int numIn=0;
+            //判断输入是否正确
+            while (inIfRight)
+            {
+                Console.Write("Enter a natural number：");
+                try
+                {
+                    string numStr = Console.ReadLine();
+                    numIn = Int32.Parse(numStr);
+                    if (numIn <= 0)
+                    {
+                        Console.WriteLine("\n Please enter the correct number ！\n");
+                        continue;
+                    }
+                    inIfRight = false;
+                }
+                catch (Exception e)
+                {
+                    inIfRight = true;
+                }
+            }
+            Divisor(numIn);       
         }   
     }
 }
