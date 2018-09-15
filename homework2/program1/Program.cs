@@ -10,7 +10,7 @@ namespace program1
     class Program
     {
         //判断素数
-       static bool primeNum(int i)
+       static bool PrimeNum(int i)
         {
             for(int j = 2; j < i; j++)
             {
@@ -45,9 +45,9 @@ namespace program1
                 if (numIn % i == 0)
                 {
                     int j = numIn / i;
-                    if (primeNum(i))
+                    if (PrimeNum(i))
                         Console.Write(i + "\t");
-                    if(primeNum(j))
+                    if(PrimeNum(j))
                         Console.Write(j + "\t");
                 }
             }           
