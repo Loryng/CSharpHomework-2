@@ -60,10 +60,8 @@ namespace program1
             }
             catch
             {
-            }
-            
+            }         
             mC.Clock += new AlarmClock(ClockShow);
-
             mC.RingOrShow(mC.hour, mC.minute, mC.secord);
         }
 
