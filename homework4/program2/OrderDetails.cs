@@ -13,7 +13,6 @@ namespace program2
         public string CommodityName { set; get; }//商品名称
         public int CommodityNumber { set; get; }//商品数量
         public float CommodityPrice { set; get; }//商品价格
-        public string Client { set; get; }//客户
-
+        public string Client { set; get; }//客户      
     }
 }

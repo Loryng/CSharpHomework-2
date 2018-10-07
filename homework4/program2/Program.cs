@@ -11,12 +11,84 @@ namespace program2
         static void Main(string[] args)
         {
             Order a = new Order();
-            
-            OrderService.Add(a.MyOreder, 1, "2", 12, 12, "W");
-            OrderService.Add(a.MyOreder, 2, "2", 12, 12, "W");
-            OrderService.Add(a.MyOreder, 3, "2", 12, 12, "W");
-            OrderService.Add(a.MyOreder, 4, "2", 12, 12, "W");
-            OrderService.Add(a.MyOreder, 5, "2", 12, 12, "W");
+            int Id, price, Number;
+            string Name, Client;
+
+            bool T = true;
+
+            while (T)
+            {
+                try
+                {
+
+                    Console.WriteLine("\n请选择您要功能：\n1.添加订单   2.删除订单   3.查询    4.完成操作 \n    其他键退出");
+                    int select = Convert.ToInt32(Console.ReadLine());
+                    if (select == 1)
+                    {
+                        Console.WriteLine("1.添加订单：");
+                        Console.WriteLine("编号：");
+                        Id = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("名称：");
+                        Name = Console.ReadLine();
+                        Console.WriteLine("数量：");
+                        price = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("价格：");
+                        Number = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("客户：");
+                        Client = Console.ReadLine();
+                        OrderService.Add(a.MyOreder, Id, Name, Number, price, Client);
+                    }
+                    else if (select == 2)
+                    {
+                        Console.WriteLine("2.删除订单：");
+                        Console.WriteLine("编号：");
+                        Id = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("名称：");
+                        Name = Console.ReadLine();
+                        Console.WriteLine("数量：");
+                        price = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("价格：");
+                        Number = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("客户：");
+                        Client = Console.ReadLine();
+                        OrderService.Delete(a.MyOreder, Id, Name, Number, price, Client);
+                    }
+                    else if (select == 3)
+                    {
+                        Console.WriteLine("3.查询：");
+                        Console.WriteLine("编号：");
+                        Id = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("名称：");
+                        Name = Console.ReadLine();
+                        Console.WriteLine("数量：");
+                        price = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("价格：");
+                        Number = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("客户：");
+                        Client = Console.ReadLine();
+                        OrderService.Search(a.MyOreder, Id, Name, Number, price, Client);
+                    }
+                    else if (select == 4)
+                    {
+                        T = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("谢谢使用！");
+                        break;
+                    }
+
+
+
+
+                }
+                catch
+                {
+                    Console.WriteLine("请正确输入！");
+                }
+            }
         }
+          
+        
     }
 }
