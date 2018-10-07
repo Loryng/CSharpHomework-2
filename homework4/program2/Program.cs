@@ -37,6 +37,7 @@ namespace program2
                         Console.WriteLine("客户：");
                         Client = Console.ReadLine();
                         OrderService.Add(a.MyOreder, Id, Name, Number, price, Client);
+                        Console.WriteLine("\n   完成  ");
                     }
                     else if (select == 2)
                     {
@@ -52,6 +53,7 @@ namespace program2
                         Console.WriteLine("客户：");
                         Client = Console.ReadLine();
                         OrderService.Delete(a.MyOreder, Id, Name, Number, price, Client);
+                        Console.WriteLine("\n   完成  ");
                     }
                     else if (select == 3)
                     {
@@ -67,10 +69,13 @@ namespace program2
                         Console.WriteLine("客户：");
                         Client = Console.ReadLine();
                         OrderService.Search(a.MyOreder, Id, Name, Number, price, Client);
+                        Console.WriteLine("\n   完成  ");
                     }
                     else if (select == 4)
                     {
+                        Console.WriteLine("\n   完成  ");
                         T = false;
+
                     }
                     else
                     {
