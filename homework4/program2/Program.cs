@@ -11,8 +11,8 @@ namespace program2
         static void Main(string[] args)
         {
             Order a = new Order();
-            int Id, price, Number;
-            string Name, Client;
+            int  price, Number;
+            string  Id,Name, Client;
 
             bool T = true;
 
@@ -21,13 +21,13 @@ namespace program2
                 try
                 {
 
-                    Console.WriteLine("\n请选择您要功能：\n1.添加订单   2.删除订单   3.查询    4.完成操作 \n    其他键退出");
+                    Console.WriteLine("\n请选择您要功能：\n1.添加订单   2.删除订单   3.查询    4.显示订单 \n    其他键退出");
                     int select = Convert.ToInt32(Console.ReadLine());
                     if (select == 1)
                     {
                         Console.WriteLine("1.添加订单：");
                         Console.WriteLine("编号：");
-                        Id = Convert.ToInt32(Console.ReadLine());
+                        Id = Console.ReadLine();
                         Console.WriteLine("名称：");
                         Name = Console.ReadLine();
                         Console.WriteLine("数量：");
@@ -43,38 +43,38 @@ namespace program2
                     {
                         Console.WriteLine("2.删除订单：");
                         Console.WriteLine("编号：");
-                        Id = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("名称：");
-                        Name = Console.ReadLine();
-                        Console.WriteLine("数量：");
-                        price = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("价格：");
-                        Number = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("客户：");
-                        Client = Console.ReadLine();
-                        OrderService.Delete(a.MyOreder, Id, Name, Number, price, Client);
+                        Id = Console.ReadLine();
+                        //Console.WriteLine("名称：");
+                        //Name = Console.ReadLine();
+                        //Console.WriteLine("数量：");
+                        //price = Convert.ToInt32(Console.ReadLine());
+                        //Console.WriteLine("价格：");
+                        //Number = Convert.ToInt32(Console.ReadLine());
+                        //Console.WriteLine("客户：");
+                        //Client = Console.ReadLine();
+                        OrderService.Delete1(a.MyOreder, Id);
                         Console.WriteLine("\n***完成***  ");
                     }
                     else if (select == 3)
                     {
                         Console.WriteLine("3.查询：");
                         Console.WriteLine("编号：");
-                        Id = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("名称：");
-                        Name = Console.ReadLine();
-                        Console.WriteLine("数量：");
-                        price = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("价格：");
-                        Number = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine("客户：");
-                        Client = Console.ReadLine();
-                        OrderService.Search(a.MyOreder, Id, Name, Number, price, Client);
+                        Id = Console.ReadLine();
+                        //Console.WriteLine("名称：");
+                        //Name = Console.ReadLine();
+                        //Console.WriteLine("数量：");
+                        //price = Convert.ToInt32(Console.ReadLine());
+                        //Console.WriteLine("价格：");
+                        //Number = Convert.ToInt32(Console.ReadLine());
+                        //Console.WriteLine("客户：");
+                        //Client = Console.ReadLine();
+                        OrderService.Search(a.MyOreder, Id);
                         Console.WriteLine("\n***完成***  ");
                     }
                     else if (select == 4)
                     {
-                        Console.WriteLine("\n***完成***  ");
-                        T = false;
+                        Console.WriteLine("\n***完成*** \n  ");
+                        OrderService.ShowForUser(a.MyOreder);
 
                     }
                     else
