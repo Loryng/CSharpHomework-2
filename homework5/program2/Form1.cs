@@ -49,8 +49,8 @@ namespace program2
             //调用函数连线
             drawLine(x0, y0, x1, y1);
 
-            double th1 = Convert.ToInt32(textBox1.Text) * Math.PI / 180;//30°
-            double th2 = Convert.ToInt32(textBox2.Text) * Math.PI / 180;//20°
+            double th1 = Convert.ToSingle(textBox1.Text) * Math.PI / 180;//30°
+            double th2 = Convert.ToSingle(textBox2.Text) * Math.PI / 180;//20°
 
             drawCayleyTree(n - 1, x1, y1, per1 * leng, th + th1 );
             drawCayleyTree(n - 1, x2, y2, per2 * leng, th - th2 );
@@ -73,7 +73,5 @@ namespace program2
         {
             
         }
-
-
     }
 }

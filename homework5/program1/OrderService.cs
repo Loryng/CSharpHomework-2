@@ -117,6 +117,29 @@ namespace program1
             }
         }
 
+        //按照商品名称查询
+        public void FindByGN(string name)
+        {
+            if (this.orders.Count == 0)
+            {
+                Console.WriteLine("++++++ 没有订单 ++++++");
+                return;
+            }
+            var A =  orders.Where(a => a.MyOreder.Exists(b => b.good.Name == name)).Select(a => a);
+            
+            foreach (var B in A)
+            {
+                Console.WriteLine($"\n=========订单号：{B.OrderId}    客户：{B.Client}=========");
+                foreach (var C in B.MyOreder)
+                {
+                    Console.WriteLine($"++++++++ {C.DetailsNumber}.  商品编号：{C.good.Id}\t名称：{C.good.Name}\t单价：{C.good.Price}\t数量：{C.CommodityNumber}\t价格：{C.TotalPrice}++++++++");
+                }
+                Console.WriteLine($"++++++++总金额：{B.Sum()}");
+                Console.WriteLine($"\n*****{DateTime.Now.Year.ToString()}/{DateTime.Now.Month.ToString()}/{DateTime.Now.Day.ToString()}*****");
+            }
+        }
+
+
         //按照指定金额查询订单
         public void FindByTotal(double total)
         {

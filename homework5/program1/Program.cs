@@ -88,7 +88,7 @@ namespace program1
                     }
                     else if (select == 3)
                     {
-                        Console.WriteLine("\n\n    ################## 3.)查询订单:(请选择) ##################\n——————1.按照客户名查询订单——————\n——————2.按照订单号查询订单——————\n——————3.查询小于指定金额的订单——————\n——————其他返回\n");
+                        Console.WriteLine("\n\n    ################## 3.)查询订单:(请选择) ##################\n——————1.按照客户名查询订单——————\n——————2.按照订单号查询订单——————\n——————3.查询小于指定金额的订单——————\n——————4.按照商品名查询订单——————\n——————其他返回\n");
                         int sd = Convert.ToInt32(Console.ReadLine());
                         if (sd == 1)
                         {
@@ -112,6 +112,14 @@ namespace program1
                             Console.WriteLine("输入您的金额：");
                             double client = Convert.ToDouble (Console.ReadLine());
                             os.FindByTotal(client);
+                            Console.WriteLine("-*-*-*-*- 完成 -*-*-*-*-\n");
+                        }
+                        else if (sd == 4)
+                        {
+                            Console.WriteLine("\n2.按照商品名称查询订单");
+                            Console.WriteLine("需要查询商品：");
+                            string goodsName = Console.ReadLine();
+                            os.FindByGN( goodsName);
                             Console.WriteLine("-*-*-*-*- 完成 -*-*-*-*-\n");
                         }
                         
