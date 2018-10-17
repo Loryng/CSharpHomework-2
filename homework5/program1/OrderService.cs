@@ -33,10 +33,7 @@ namespace program1
                 Console.WriteLine("========== 没有符合条件的订单 ==========");
                 return;
             }
-            foreach (var B in A)
-            {
-                this.orders.Remove(B);
-            }
+            this.orders.RemoveAll(a => a.OrderId == id);
         }
         //按客户删除订单
         public void DeleteByCliend(string client)
@@ -53,10 +50,7 @@ namespace program1
                 Console.WriteLine("========== 没有符合条件的订单 ==========");
                 return;
             }
-            foreach (var B in A)
-            {
-                this.orders.Remove(B);
-            }
+            this.orders.RemoveAll(a => a.Client.Equals(client));
         }     
 
         //按照客户查询订单
