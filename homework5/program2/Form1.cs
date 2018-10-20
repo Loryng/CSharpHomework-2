@@ -68,10 +68,6 @@ namespace program2
             graphics.DrawLine(pen ,
                 (int)x0, (int)y0, (int)x1, (int)y1);
         }
-
-        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
-        {
-            
-        }
+        
     }
 }
