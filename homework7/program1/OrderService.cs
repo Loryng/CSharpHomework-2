@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.IO;
 using System.Threading.Tasks;
 using System.Collections;
-using System.Xml.Serialization;
 
 namespace program1
 {
-    
-    public class OrderService
+     public class OrderService
     {
        
-        private List<Order> orders = new List<Order>();
+        public List<Order> orders = new List<Order>();
 
        //添加订单
        public void AddOrder(Order order)
@@ -54,7 +51,7 @@ namespace program1
                 return;
             }
             this.orders.RemoveAll(a => a.Client.Equals(client));
-        }
+        }     
 
         //按照客户查询订单
         public void FindByName(string client)
@@ -75,7 +72,7 @@ namespace program1
             foreach (var B in A)
             {
                 Console.WriteLine($"\n=========订单号：{B.OrderId}    客户：{B.Client}=========");
-                foreach (var C in B.MyOreder)
+                foreach (var C in B.MyOrder)
                 {
                     Console.WriteLine($"++++++++ {C.DetailsNumber}.  商品编号：{C.good.Id}\t名称：{C.good.Name}\t单价：{C.good.Price}\t数量：{C.CommodityNumber}\t价格：{C.TotalPrice}++++++++");
                 }
@@ -105,7 +102,7 @@ namespace program1
             foreach (var B in A)
             {
                 Console.WriteLine($"\n=========订单号：{B.OrderId}    客户：{B.Client}=========");
-                foreach (var C in B.MyOreder)
+                foreach (var C in B.MyOrder)
                 {
                     Console.WriteLine($"++++++++ {C.DetailsNumber}.  商品编号：{C.good.Id}\t名称：{C.good.Name}\t单价：{C.good.Price}\t数量：{C.CommodityNumber}\t价格：{C.TotalPrice}++++++++");
                 }
@@ -122,12 +119,12 @@ namespace program1
                 Console.WriteLine("++++++ 没有订单 ++++++");
                 return;
             }
-            var A =  orders.Where(a => a.MyOreder.Exists(b => b.good.Name == name)).Select(a => a);
+            var A =  orders.Where(a => a.MyOrder.Exists(b => b.good.Name == name)).Select(a => a);
             
             foreach (var B in A)
             {
                 Console.WriteLine($"\n=========订单号：{B.OrderId}    客户：{B.Client}=========");
-                foreach (var C in B.MyOreder)
+                foreach (var C in B.MyOrder)
                 {
                     Console.WriteLine($"++++++++ {C.DetailsNumber}.  商品编号：{C.good.Id}\t名称：{C.good.Name}\t单价：{C.good.Price}\t数量：{C.CommodityNumber}\t价格：{C.TotalPrice}++++++++");
                 }
@@ -162,7 +159,7 @@ namespace program1
             foreach (var B in A)
             {
                 Console.WriteLine($"\n=========订单号：{B.OrderId}    客户：{B.Client}=========");
-                foreach (var C in B.MyOreder)
+                foreach (var C in B.MyOrder)
                 {
                     Console.WriteLine($"++++++++ {C.DetailsNumber}.  商品编号：{C.good.Id}\t名称：{C.good.Name}\t单价：{C.good.Price}\t数量：{C.CommodityNumber}\t价格：{C.TotalPrice}++++++++");
                 }
@@ -183,7 +180,7 @@ namespace program1
             foreach(var B in this.orders)
             {
                 Console.WriteLine($"\n=========订单号：{B.OrderId}    客户：{B.Client}=========");
-                foreach (var C in B.MyOreder)
+                foreach (var C in B.MyOrder)
                 {
                     Console.WriteLine($"++++++++ {C.DetailsNumber}.  商品编号：{C.good.Id}\t名称：{C.good.Name}\t单价：{C.good.Price}\t数量：{C.CommodityNumber}\t价格：{C.TotalPrice}++++++++");
                 }
@@ -194,23 +191,5 @@ namespace program1
             
         }
         
-        //XML序列化
-        public void Export()
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(List<Order>));
-            using (FileStream fs=new FileStream("fs.xml",FileMode.Create))
-            {
-                xml.Serialize(fs,orders);
-            }
-        }
-        //XML反序列化
-        public void Import()
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(List<Order>));
-            using (FileStream fs = new FileStream("fs.xml", FileMode.Open))
-            {
-                orders = (List<Order>)xml.Deserialize(fs);
-            }
-        }
     }
 }

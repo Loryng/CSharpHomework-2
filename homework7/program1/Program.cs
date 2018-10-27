@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace program1
 {
-     class Program
+    class Program
     {
         static void Main(string[] args)
         {
             string Name;
+
             bool T = true;
             int index=0,Number=0;
             OrderService os = new OrderService();
-            os.Import();
             while (T)
             {
                 try
@@ -127,7 +127,6 @@ namespace program1
                     else if (select == 4)
                     {
                         os.ShowForUser();
-                        os.Export();
                         Console.WriteLine("\n***完成*** \n  ");                     
                     }
                     else
@@ -135,19 +134,12 @@ namespace program1
                         Console.WriteLine("*****谢谢使用！*****");
                         break;
                     }
-                    ;
                 }
-                catch(Exception e)
+                catch
                 {
-                    Console.WriteLine("\n   ******请正确输入！******\n");
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine("\n   ******请正确输入！******");
                 }
-
             }
-            //homework6
-            Console.WriteLine("\n*****\thomework6\t*****");
-            
-            os.Import();
         }
           
         
