@@ -47,6 +47,9 @@ namespace program1
         {
             get;
         }
-        
+        public override string ToString()
+        {
+            return Price.ToString();
+        }
     }
 }

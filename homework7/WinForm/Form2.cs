@@ -25,7 +25,7 @@ namespace WinForm
             m++;
             Order order = new Order();
             int B = 0;
-            if(checkBox1.Checked&&textBox2!=null)
+            if(checkBox1.Checked&&textBox2.Text!="")
             {
                goods1 = new Goods("辣条");
                 OrderDetails orderDetails = new OrderDetails(goods1, Convert.ToInt32(textBox2.Text));
@@ -33,7 +33,7 @@ namespace WinForm
                 orderDetails.DetailsNumber = B;
                 order.MyOrder.Add(orderDetails);
             }
-            if (checkBox2.Checked && textBox3 != null)
+            if (checkBox2.Checked && textBox3.Text != "")
             {
                 goods2 = new Goods("快乐水");
                 OrderDetails orderDetails = new OrderDetails(goods2, Convert.ToInt32(textBox3.Text));
@@ -41,7 +41,7 @@ namespace WinForm
                 orderDetails.DetailsNumber = B;
                 order.MyOrder.Add(orderDetails);
             }
-            if (checkBox3.Checked && textBox4 != null)
+            if (checkBox3.Checked && textBox4.Text != "")
             {
                 goods3 = new Goods("七个小矮人");
                 OrderDetails orderDetails = new OrderDetails(goods3, Convert.ToInt32(textBox4.Text));
@@ -49,7 +49,24 @@ namespace WinForm
                 orderDetails.DetailsNumber = B;
                 order.MyOrder.Add(orderDetails);
             }
-            order.Client = textBox1.Text;
+
+            if (!textBox1.Text.Equals(""))
+                order.Client = textBox1.Text;
+            else
+            {
+                MessageBox.Show("请输入客户名！");
+                return;
+            }
+
+            if (B == 0)
+            {
+                MessageBox.Show("抱歉！您添加的订单为空！");
+                return;
+            }
+            else
+                MessageBox.Show("添加成功！");
+           
+               
             order.OrderId = m +DateTime.Now.Month*10000+DateTime.Now.Day*100;
             order.Sum();
             Form1.os.AddOrder(order);

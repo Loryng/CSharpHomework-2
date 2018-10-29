@@ -13,12 +13,16 @@ namespace program1
         {
             this.CommodityNumber = number;
             this.good = goods;
-            goodName = goods.Name;
+            this.goodName = goods.Name;       
             this.TotalPrice = this.good.Price * this.CommodityNumber;
         }
         public Goods good { set; get; }
+
+        
         public string goodName { set; get; }//商品名
-        public int DetailsNumber { set; get; }//明细序号      
+
+        public int DetailsNumber { set; get; }//明细序号   
+        
         public float TotalPrice { set; get; }//商品总价格
 
         public int CommodityNumber { set; get; }//商品数量(外部传入)            
