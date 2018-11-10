@@ -156,11 +156,11 @@ namespace WinForm
                 XslCompiledTransform xt = new XslCompiledTransform();
                 xt.Load(@"./Order.xslt");
 
-                FileStream outFileStream = File.OpenWrite(@"Order.html");
+                FileStream outFileStream = File.OpenWrite(@"./Order.html");
                 XmlTextWriter writer =
                     new XmlTextWriter(outFileStream, System.Text.Encoding.UTF8);
                 xt.Transform(nav, writer);
-                MessageBox.Show("成功！");
+                MessageBox.Show("成功！");               
             }
             catch (XmlException ea)
             {
